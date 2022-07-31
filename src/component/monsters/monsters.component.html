@@ -1,0 +1,22 @@
+<div class="monsterCard">
+  <span> 
+    <input type="search" placeholder="Search your monster" (keyup)="onChange($event)" />
+  
+  </span>
+  <span *ngFor="let item of items$ | async">
+    {{ item.name }}
+</span>
+<div class="monster-default">
+  <span  *ngFor="let MONSTER of MONSTERS">
+    {{ MONSTER.name}}
+</span>
+</div>
+ 
+
+
+
+</div>
+
+
+
+

@@ -1,0 +1,55 @@
+.monsterCard{
+
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+div{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+input{
+    margin-top:20%;
+    border:none;
+border-bottom:1px solid darkred;
+background-color: transparent;
+color:black;
+outline: none;
+padding:20px;
+font-size: 16px;
+margin-bottom: 30px;
+
+&::-webkit-search-cancel-button{
+    display:none;
+}
+
+
+}
+
+&:nth-child(n){
+
+    margin:10px;
+    
+
+}
+
+span{
+
+    &:nth-child(n){
+
+        margin:10px;
+
+    }
+
+}
+
+
+}
