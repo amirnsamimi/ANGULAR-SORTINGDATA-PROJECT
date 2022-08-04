@@ -6,6 +6,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 
+
 div{
 
     display: flex;
@@ -14,6 +15,19 @@ div{
     align-items: center;
     
     
+}
+
+button{
+
+        color:darkred;
+        padding:10px;
+        background-color: transparent;
+        border:none;
+        position: relative;
+        right:3rem;
+        cursor: pointer;
+        
+
 }
 
 input{

@@ -1,20 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable  } from 'rxjs';
-import { Monster } from 'src/interfaces/monster.interface';
+import { Country } from 'src/interfaces/monster.interface';
 
 
 @Injectable()
-export class MonsterService {
+export class CountryService {
     
-  private _url: string = "https://jsonplaceholder.typicode.com/users"
-
   constructor(private http: HttpClient) { }
-  
-  getMonsters(): Observable<Monster[]>{
-    return this.http.get<Monster[]>(this._url);
+
+
+  getCountries(input: string): Observable<Country[]>{
+
+    return this.http.get<Country[]>('http://universities.hipolabs.com/search?country='+input);
+    
   }
 }
+
+
 
 
 

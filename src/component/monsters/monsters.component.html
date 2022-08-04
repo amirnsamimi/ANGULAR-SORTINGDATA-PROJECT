@@ -1,15 +1,20 @@
 <div class="monsterCard">
   <span> 
-    <input type="search" placeholder="Search your monster" (keyup)="onChange($event)" />
-  
+    <input type="search" placeholder="Search your university" (keyup)="onChange($event)" /> &nbsp;
+    <input type="text" placeholder="search for country" (change)="changeFunc($event)" name="country">
+    <button type="button"  (click)="getCountries()">Find</button>
   </span>
-  <span *ngFor="let item of items$ | async">
+<span *ngFor="let item of items$ | async">
     {{ item.name }}
 </span>
-<div class="monster-default">
-  <span  *ngFor="let MONSTER of MONSTERS">
-    {{ MONSTER.name}}
+<div class="country-default">
+  <span  *ngFor="let COUNTRY of COUNTRIES">
+    {{ COUNTRY.name}}
 </span>
+
+<mat-spinner></mat-spinner>
+
+
 </div>
  
 
