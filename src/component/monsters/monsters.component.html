@@ -1,8 +1,20 @@
 <div class="monsterCard">
   <span> 
     <input type="search" placeholder="Search your university" (keyup)="onChange($event)" /> &nbsp;
-    <input type="text" placeholder="search for country" (change)="changeFunc($event)" name="country">
+    <input type="text"
+    placeholder="search for country" (change)="changeFunc($event)" name="country"
+    aria-label="Number"
+    matInput
+    [formControl]="myControl"
+    [matAutocomplete]="auto">
     <button type="button"  (click)="getCountries()">Find</button>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+
   </span>
 <span *ngFor="let item of items$ | async">
     {{ item.name }}
@@ -12,7 +24,7 @@
     {{ COUNTRY.name}}
 </span>
 
-<mat-spinner></mat-spinner>
+
 
 
 </div>

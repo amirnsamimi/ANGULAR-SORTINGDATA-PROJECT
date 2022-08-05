@@ -2,9 +2,11 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { CountryService } from 'src/app/config/config.service';
 import { Country } from 'src/interfaces/monster.interface';
 import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-monsters',
@@ -21,6 +23,9 @@ public COUNTRIES: Country[] = [];
 
 countryKeyword : string = " ";
 
+myControl = new FormControl('');
+options: string[] = ['One', 'Two', 'Three'];
+filteredOptions: Observable<string[]> | undefined;
 
   constructor(private _CountryService: CountryService) { 
 
@@ -46,17 +51,25 @@ countryKeyword : string = " ";
   }
 
 
-  ngOnInit(): void {
-  
   
 
+  ngOnInit(): void {
+  
     this._CountryService.getCountries(this.countryKeyword)
     .subscribe( data => this.COUNTRIES = data);
-   
+  
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
 
   }
 
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
 
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
 
   
   phrase$ = new BehaviorSubject<string>('');

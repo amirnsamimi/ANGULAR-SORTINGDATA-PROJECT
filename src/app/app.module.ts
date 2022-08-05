@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from 'src/component/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +26,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [CountryService,

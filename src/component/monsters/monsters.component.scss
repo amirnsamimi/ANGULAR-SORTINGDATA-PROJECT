@@ -7,14 +7,20 @@ justify-content: center;
 align-items: center;
 
 
+
 div{
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    
+    height: 500px;
+    overflow: scroll;
+    &::-webkit-scrollbar{
+
+        display: none;
+
+    }
 }
 
 button{
