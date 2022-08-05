@@ -1,28 +1,8 @@
-
 export interface Country {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    address:{ 
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: { 
-  
-      lat: string;
-      lng: string;
-  
-    }};
-    phone:string;
-    website:string;
-    company:{
-      name:string;
-      catchPhrase:string;
-      bs:string;
-    };
-    
-
-  
-  } 
+  web_pages: Object;
+  'state-province': null;
+  alpha_two_code: string;
+  domains: Object;
+  country: string;
+  name: string;
+}

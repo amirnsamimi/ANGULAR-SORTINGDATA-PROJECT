@@ -12,7 +12,7 @@ export class CountryService {
 
   getCountries(input: string): Observable<Country[]>{
 
-    return this.http.get<Country[]>('http://universities.hipolabs.com/search?country='+input);
+    return this.http.get<Country[]>('http://universities.hipolabs.com/search?'+input);
     
   }
 }

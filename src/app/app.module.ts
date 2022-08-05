@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AutocompleteLibModule
     
   ],
   providers: [CountryService,

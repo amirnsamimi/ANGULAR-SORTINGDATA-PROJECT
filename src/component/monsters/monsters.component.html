@@ -1,19 +1,30 @@
 <div class="monsterCard">
   <span> 
     <input type="search" placeholder="Search your university" (keyup)="onChange($event)" /> &nbsp;
-    <input type="text"
-    placeholder="search for country" (change)="changeFunc($event)" name="country"
-    aria-label="Number"
-    matInput
-    [formControl]="myControl"
-    [matAutocomplete]="auto">
     <button type="button"  (click)="getCountries()">Find</button>
+    <div class="ng-autocomplete">
+      <ng-autocomplete 
+        [data]="data"
+        [searchKeyword]="keyword"
+        placeholder="Select country"
+        (selected)='selectEvent($event)'
+        (inputChanged)='onChangeSearch($event)'
+        (change)="changeFunc($event)"
+        (inputFocused)='onFocused($event)'
+        [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate">                                 
+      </ng-autocomplete>
+      
+      <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.name"></a>
+      </ng-template>
+      
+      <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+      </ng-template>
+      </div>
 
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
+
 
   </span>
 <span *ngFor="let item of items$ | async">
