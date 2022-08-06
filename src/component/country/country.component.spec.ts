@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PagComponentComponent } from './pag-component.component';
+import { CountryComponent } from './country.component';
 
-describe('PagComponentComponent', () => {
-  let component: PagComponentComponent;
-  let fixture: ComponentFixture<PagComponentComponent>;
+describe('CountryComponent', () => {
+  let component: CountryComponent;
+  let fixture: ComponentFixture<CountryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PagComponentComponent ]
+      declarations: [ CountryComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PagComponentComponent);
+    fixture = TestBed.createComponent(CountryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

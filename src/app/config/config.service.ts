@@ -1,7 +1,7 @@
 import { Injectable, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable  } from 'rxjs';
-import { Country } from 'src/interfaces/monster.interface';
+import { Country } from 'src/interfaces/country.interface';
 
 
 @Injectable()

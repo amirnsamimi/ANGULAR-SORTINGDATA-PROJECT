@@ -1,0 +1,75 @@
+<div class="componentCountry">
+<div class="serach-country">
+  <div class="ng-autocomplete">
+    <ng-autocomplete
+      [data]="data"
+      [searchKeyword]="keyword"
+      placeholder="Select country"
+      (selected)="selectEvent($event)"
+      (inputChanged)="onChangeSearch($event)"
+      (change)="changeFunc($event)"
+      (inputFocused)="onFocused($event)"
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate"
+    >
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+      <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+      <div [innerHTML]="notFound"></div>
+    </ng-template>
+  </div>
+  <button type="button" class="country-find" (click)="getCountries()">
+    Find
+  </button>
+</div>
+<div class="s-field">
+  <input
+  type="search"
+  placeholder="Search your university"
+  (keyup)="onChange($event)"
+/>
+</div>
+<div class="c-item">
+  <span *ngFor="let item of items$ | async  ">
+    <mat-card class="mat-card">
+      <mat-card-content>
+        {{ item.country }}
+      </mat-card-content>
+      <mat-card-content>
+        <mat-card-title>
+          {{ item.name }}
+        </mat-card-title>
+        <br />
+        <a href="{{ item.web_pages }}">{{ item.domains }}</a>
+      </mat-card-content>
+    </mat-card>
+  </span>
+</div>
+<div class="country-default">
+  <span *ngFor="let COUNTRY of COUNTRIES | paginate: { itemsPerPage: 50, currentPage: p }">
+    <mat-card class="mat-card">
+      <mat-card-content>
+        {{ COUNTRY.country }}
+      </mat-card-content>
+      <mat-card-content>
+        <mat-card-title>
+          {{ COUNTRY.name }}
+        </mat-card-title>
+        <br />
+        <a href="{{ COUNTRY.web_pages }}">{{ COUNTRY.domains }}</a>
+      </mat-card-content>
+    </mat-card>
+  </span>
+
+</div>
+<div class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<footer class="footer">
+  © 2022 Hessam Dehghan
+</footer>
+</div>
